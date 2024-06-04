@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MultimediaHW</string>
+
+    <string name="pref_key_camera_live_viewport" translatable="false">clv</string>
+    <string name="pref_key_info_hide" translatable="false">ih</string>
+
+</resources>
