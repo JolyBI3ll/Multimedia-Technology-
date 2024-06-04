@@ -145,26 +145,26 @@ class FaceGraphic(overlay: GraphicOverlay?, private val face: Face,
     }
 
     // Draws smiling and left/right eye open probabilities.
-    if (face.smilingProbability != null) {
-      canvas?.drawText(
-        "Smiling: " + String.format(Locale.US, "%.2f", face.smilingProbability),
-        left,
-        top + yLabelOffset,
-        idPaints[colorID]
-      )
-      yLabelOffset += lineHeight
-    }
+//    if (face.smilingProbability != null) {
+//      canvas?.drawText(
+//        "Smiling: " + String.format(Locale.US, "%.2f", face.smilingProbability),
+//        left,
+//        top + yLabelOffset,
+//        idPaints[colorID]
+//      )
+//      yLabelOffset += lineHeight
+//    }
 
     val leftEye = face.getLandmark(FaceLandmark.LEFT_EYE)
-    if (face.leftEyeOpenProbability != null) {
-      canvas?.drawText(
-        "Left eye open: " + String.format(Locale.US, "%.2f", face.leftEyeOpenProbability),
-        left,
-        top + yLabelOffset,
-        idPaints[colorID]
-      )
-      yLabelOffset += lineHeight
-    }
+//    if (face.leftEyeOpenProbability != null) {
+//      canvas?.drawText(
+//        "Left eye open: " + String.format(Locale.US, "%.2f", face.leftEyeOpenProbability),
+//        left,
+//        top + yLabelOffset,
+//        idPaints[colorID]
+//      )
+//      yLabelOffset += lineHeight
+//    }
     if (leftEye != null) {
       val leftEyeLeft =
         translateX(leftEye.position.x) - idPaints[colorID].measureText("Left Eye") / 2.0f
@@ -184,15 +184,15 @@ class FaceGraphic(overlay: GraphicOverlay?, private val face: Face,
     }
 
     val rightEye = face.getLandmark(FaceLandmark.RIGHT_EYE)
-    if (face.rightEyeOpenProbability != null) {
-      canvas?.drawText(
-        "Right eye open: " + String.format(Locale.US, "%.2f", face.rightEyeOpenProbability),
-        left,
-        top + yLabelOffset,
-        idPaints[colorID]
-      )
-      yLabelOffset += lineHeight
-    }
+//    if (face.rightEyeOpenProbability != null) {
+//      canvas?.drawText(
+//        "Right eye open: " + String.format(Locale.US, "%.2f", face.rightEyeOpenProbability),
+//        left,
+//        top + yLabelOffset,
+//        idPaints[colorID]
+//      )
+//      yLabelOffset += lineHeight
+//    }
     if (rightEye != null) {
       val rightEyeLeft =
         translateX(rightEye.position.x) - idPaints[colorID].measureText("Right Eye") / 2.0f
@@ -234,25 +234,25 @@ class FaceGraphic(overlay: GraphicOverlay?, private val face: Face,
         labelPaints[colorID]
       )
 
-      if (face.leftEyeOpenProbability == null || face.rightEyeOpenProbability == null) {
-        canvas.drawText("Недостаточно информации", left, bottom + lineHeight, idPaints[colorID])
-      } else if (face.leftEyeOpenProbability!! > 0.4 && face.rightEyeOpenProbability!! > 0.4) {
-        canvas.drawText("Глаза открыты", left, bottom + lineHeight, idPaints[colorID])
-      } else if (face.leftEyeOpenProbability!! <= 0.4 && face.rightEyeOpenProbability!! > 0.4) {
-        canvas.drawText("Закрыт левый глаз", left, bottom + lineHeight, idPaints[colorID])
-      } else if (face.leftEyeOpenProbability!! > 0.4 && face.rightEyeOpenProbability!! <= 0.4) {
-        canvas.drawText("Закрыт правый глаз", left, bottom + lineHeight, idPaints[colorID])
-      } else if (face.leftEyeOpenProbability!! <= 0.4 && face.rightEyeOpenProbability!! <= 0.4) {
-        canvas.drawText("Закрыты оба глаза", left, bottom + lineHeight, idPaints[colorID])
-      } else {
-        canvas.drawText("Недостаточно информации", left, bottom + lineHeight, idPaints[colorID])
-      }
+//      if (face.leftEyeOpenProbability == null || face.rightEyeOpenProbability == null) {
+//        canvas.drawText("Недостаточно информации", left, bottom + lineHeight, idPaints[colorID])
+//      } else if (face.leftEyeOpenProbability!! > 0.4 && face.rightEyeOpenProbability!! > 0.4) {
+//        canvas.drawText("Глаза открыты", left, bottom + lineHeight, idPaints[colorID])
+//      } else if (face.leftEyeOpenProbability!! <= 0.4 && face.rightEyeOpenProbability!! > 0.4) {
+//        canvas.drawText("Закрыт левый глаз", left, bottom + lineHeight, idPaints[colorID])
+//      } else if (face.leftEyeOpenProbability!! > 0.4 && face.rightEyeOpenProbability!! <= 0.4) {
+//        canvas.drawText("Закрыт правый глаз", left, bottom + lineHeight, idPaints[colorID])
+//      } else if (face.leftEyeOpenProbability!! <= 0.4 && face.rightEyeOpenProbability!! <= 0.4) {
+//        canvas.drawText("Закрыты оба глаза", left, bottom + lineHeight, idPaints[colorID])
+//      } else {
+//        canvas.drawText("Недостаточно информации", left, bottom + lineHeight, idPaints[colorID])
+//      }
 
-      canvas.drawText("Всего морганий: $countBlinks", left,
-        bottom + 2 * lineHeight, idPaints[colorID])
-      canvas.drawText("Частота в минуту: " + "%.3f".format( countBlinks /
-              ((System.currentTimeMillis() - startTime) / 60000.0)), left,
-        bottom + 3 * lineHeight, idPaints[colorID])
+//      canvas.drawText("Всего морганий: $countBlinks", left,
+//        bottom + 2 * lineHeight, idPaints[colorID])
+//      canvas.drawText("Частота в минуту: " + "%.3f".format( countBlinks /
+//              ((System.currentTimeMillis() - startTime) / 60000.0)), left,
+//        bottom + 3 * lineHeight, idPaints[colorID])
 
 
 
